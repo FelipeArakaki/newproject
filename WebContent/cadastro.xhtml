@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:s="http://xmlns.jcp.org/jsf/facelets">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="description" content="Página Cadastro EscolhaCerta"/>
+  		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>Cadastro</title>				
+		
+		<!-- CSS do Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css" />
+		<style>
+			#nav{
+				display: table;
+			    position: relative;
+			    width: 100%;
+			    height: auto;
+			    background: url(WebContent/resources/img/background/bg.jpg) no-repeat center center scroll;
+			    -webkit-background-size: cover;
+			    -moz-background-size: cover;
+			    background-size: cover;
+			    -o-background-size: cover;
+			}
+		</style>
+	</h:head>
+	<h:body>
+		<div class="nav-container">
+			<div class="page-header px-5 py-3" style="background-color:orange;">
+				<div class="page-title"><img src="./resources/img/logo-escolha-certa-big.png" alt="Logotipo EsolhaCerta" /></div>
+				<div class="navbar-header">
+					<img src="" alt="Imagem usuário" /> 
+					<ul class="nav navbar-nav float-right be-user-nav">
+						<li>|</li>
+						<li class="disabled"> <!-- <h:commandLink class="navbar-brand" value="#{userArea.nome}" action="areadousuario?faces-redirect=true"/>  --></li>
+						<li class="disabled"> <!-- <h:commandLink class="navbar-brand" value="Login" action="cadastro" />  --></li>
+						<li class="disabled"> <!-- <h:commandLink class="navbar-brand" value="Sair" action="cadastro" /> --></li>
+					</ul> 				
+				</div>
+			</div>
+		</div>
+			<!-- <div id="container text-right"> -->
+			<div class="row">
+				<div role="main" class="col-md-8 pb-5">
+					<div id="container text-right">		
+					<!-- Display: determina tamanho do texto (mais alto menor), m-5 margem -->
+					<h1 class="display-5 ml-5 mt-3">Cadastre-se</h1>
+					<div class="ml-5 mt-4">
+						<div class="input-group">
+								<h:form>
+									<p>Nome: 
+									<h:inputText s:placeholder="Digite seu nome ..." class="form-control" 
+									aria-describedby="sizing-addon3" value="#{userArea.nome}" /></p>
+									<p>Senha: 
+									<h:inputSecret s:placeholder="Digite sua senha ..." 
+									class="form-control" aria-describedby="sizing-addon3" value="#{userArea.senha}" /></p>
+									<p class="form-group">
+										Nasc.:
+										<span class='input-group date' id='datetimepicker1'>									
+											   <h:inputText s:placeholder="Digite seu nasc. ..." class="form-control" value="#{userArea.nasc}" >
+											   		<f:convertDateTime pattern="dd/MM/yyyy"/>
+											   </h:inputText>
+											   <span class="input-group-addon">
+	                        				  		<span class="glyphicon glyphicon-calendar"></span>
+	                    					   </span>
+										</span>
+									</p>
+									<p>	CPF: <h:inputText s:placeholder="Digite seu CPF ..." 
+									class="form-control" aria-describedby="sizing-addon3"  value="#{userArea.cpf}" /></p>
+									<p>	Cidade: 
+									<h:inputText s:placeholder="Digite seu Cidade ..." 
+									class="form-control" aria-describedby="sizing-addon3" value="#{userArea.cidade}" /></p>
+									<p>	Estado:	<h:selectOneMenu value="#{userArea.estado}"/> 
+										<s:repeat class="dropdown-menu" var="item" value="#{gestaoProdutosBean_Aula2.produtos}">
+											<li>#{item.nome}, #{item.fabricante} - #{item.categoria}</li>
+										</s:repeat>
+									</p>
+									<p><h:commandButton value="Salvar" action="#{userArea.incluiUsuario}" class="btn btn-default" style="background:#0000cc; color:white;" /></p>
+								</h:form>
+								</div>
+							</div>
+						</div>
+					
+				</div>
+				
+				<div id="aside" role="complementary" class="col-md-4" style="background-color:orange;">
+					<div>						
+						<div class="page-header px-5 py-3">
+							Bem Vindo#{userArea.nome}!
+						</div>
+						<img src="./resources/img/lam-two.png" alt="Lampada"/>
+						<p>A EscolhaCerta de um produto nunca foi tão fácil</p>
+						<p></p>
+					</div>			
+				</div>
+			</div>
+			
+		<div class="nav-container">
+			<div class="page-header p-4" style="background-color:#f1f1f1;"></div>
+		</div>	
+		<!-- Calendar code -->
+		<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.js"></script>
+	</h:body>
+</html>
