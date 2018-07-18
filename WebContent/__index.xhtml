@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="description" content="Index EscolhaCerta"/>
+  		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  			<title>Escolha Certa</title>
+  
+			  <!-- CSS do Bootstrap -->
+			  <!-- <link rel="stylesheet" href="./resources/bootstrap/css/bootstrap.min.css" /> -->
+			  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+			  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" />
+		<style>	
+			@font-face {
+			    font-family: 'Glyphicons Halflings';
+			    src: url('resources/bootstrap/fonts/glyphicons-halflings-regular.eot');
+			    src: url('resources/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('glyphicons-halflings-regular.woff') format('woff'), url('glyphicons-halflings-regular.ttf') format('truetype'), url('glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+			}
+			.logo-header{
+				width: 190px;
+				display: inline-block;
+			}		
+			header{
+				height: 10vh;
+				background-color:orange;
+			}
+			nav {
+				height: 7vh;
+			}
+			
+			li.inline-items {
+				display: block;
+			}
+			
+			section{
+				height: 75vh;
+			}
+			
+			@media only screen and (min-width: 640px){
+				#background{
+					background-image: url(resources/img/background/bg.jpg);
+					opacity: 0.8;
+					filter: alpha(opacity=80); /* PARA IE8 ou superiores */
+					-webkit-background-size: cover; /*Css safari e chrome*/
+				    -moz-background-size: cover; /*Css firefox*/
+				    -ms-background-size: cover; /*Css IE não use mer#^@%#*/
+				    -o-background-size: cover; /*Css Opera*/				    
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+				
+				div.overlay{
+					background-color: rgba(150, 50, 255, 0.5);
+					/*position: relative;
+					z-index:0;*/
+				}
+						
+				div.over{
+					/*position: absolute;
+					z-index:1;
+					top: 25%;
+					left: 40%;*/
+				}
+			}
+			
+			input.form-control {				
+				color: blue;
+				text-weight: heavy;
+			}
+			
+			button.btn.btn-default {
+				background-color: white;
+				border-left: 0px solid #fff;
+			}
+			
+			.fas.fa-search{
+				color: blue;
+			}
+			
+			footer{
+				height: 7vh;
+			}
+		</style>
+	</h:head>
+	<h:body>
+		<header class="nav-container">
+			<div class="px-5 py-3" style="background-color:orange;">
+				<div class="page-title logo-header">					
+					<img src="resources/img/logo-escolha-certa-big.png" alt="Logotipo EsolhaCerta" />
+				</div>
+				<div class="navbar-header float-right">
+					<!-- <img src="" alt="Imagem usuário" />  --> 
+					<ul class="nav navbar-nav float-right be-user-nav" style="display: block; color: white;">
+						<li style="float: left; width:5;">|</li>
+						<li class="disabled" style="float:left; width:25;" rendered="#{not empty usuarioBean.usuario}"> <a href="#{userArea.nome}" class="navbar-brand" action="areadousuario?faces-redirect=true" style="color: white;"> #{userArea.nome}</a> </li>
+						<li class="disabled" style="float: left; width:25;"> <a href="#" class="navbar-brand" action="areadousuario?faces-redirect=true" style="color: white;"> Sign Up </a> </li>
+						<li class="disabled" style="float: left; width:25;"> <a href="#" class="navbar-brand" action="areadousuario?faces-redirect=true" style="color: white;"> Login </a> </li>
+						<li class="disabled" style="float: left; width:25;"> <a href="#" class="navbar-brand" action="areadousuario?faces-redirect=true" style="color: white;"> Sair </a> </li>						
+					</ul> 				
+				</div>
+			</div>
+		</header>
+		<!-- Menu de categorias -->
+		<nav>
+			<div class="fluid-continer">				
+			<ul>
+				<ui:repeat var="item" value="#{categoriasBean.categorias}">
+					<li class="inline-items">
+						| #{categoria.nome}
+					</li>
+				</ui:repeat>
+			</ul>
+			</div>
+		</nav>
+		<!-- Área das pesquisas -->
+		<div class="overlay">  
+		<section id="background">
+		<!-- fluid-container -->
+			<div class="over align-self-center">
+			  <div class="row justify-content-center align-self-center">			  	
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<a href="index.xhtml"><img src="resources/img/logo-escolha-certa-mini.png" alt="Logo Escolha Certa"/></a>
+				</div>				
+			  </div>
+			  <div class="row justify-content-center">			  					
+		    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 align-self-center">
+		            <form action="#" method="get">
+		              <div class="input-group">		         
+		                 <input class="form-control" id="system-search" name="q" placeholder="Digite sua pesquisa..." />
+		                 <span class="input-group-btn">
+		                   <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+		                 </span>		              
+					  </div>
+		            </form>		            
+        		</div>        		
+        	  </div>
+        	 </div>
+		   </section> 
+		</div>
+		<!-- footer -->
+		<footer class="nav-container">
+			<div class="page-header p-4" style="background-color:#f1f1f1;"></div>
+		</footer>		
+		<!-- Javascript das dependências do Bootstrap -->					
+		<!-- <script src="resources/bootstrap/js/jquery.min.js"></script>
+	  	<script src="resources/bootstrap/js/popper.min.js"></script>
+	  	<script src="resources/bootstrap/js/bootstrap.js"></script>  -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+	</h:body>
+</html>

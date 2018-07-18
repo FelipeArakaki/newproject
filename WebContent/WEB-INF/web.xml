@@ -10,7 +10,7 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <context-param>
-  	<param-name>javax.face.PROJECT_STAGE</param-name>
+  	<param-name>javax.faces.PROJECT_STAGE</param-name>
   	<param-value>Development</param-value>
   </context-param>
   <servlet>
@@ -21,7 +21,7 @@
   
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
   
   <session-config>
