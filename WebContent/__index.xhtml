@@ -89,7 +89,7 @@
 		<header class="nav-container">
 			<div class="px-5 py-3" style="background-color:orange;">
 				<div class="page-title logo-header">					
-					<img src="resources/img/logo-escolha-certa-big.png" alt="Logotipo EsolhaCerta" />
+					<img src="resources/img/logo-escolha-certa-mini.png" alt="Logotipo EsolhaCerta" />
 				</div>
 				<div class="navbar-header float-right">
 					<!-- <img src="" alt="Imagem usuário" />  --> 
@@ -108,9 +108,18 @@
 			<div class="fluid-continer">				
 			<ul>
 				<ui:repeat var="item" value="#{categoriasBean.categorias}">
-					<li class="inline-items">
+					<li class="inline-items d-inline">
 						| #{categoria.nome}
-					</li>
+					</li>					
+					<div class="btn-group d-inline">
+						<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Mais Categorias
+						</button>
+						<!-- opções de categorias, dropdown -->
+						<div class="dropdown-menu dropdown-menu-right">
+						   <li><button class="dropdown-item" type="button">#{categoriasBean.categoria}</button></li>						   
+						</div>
+					</div>					
 				</ui:repeat>
 			</ul>
 			</div>
@@ -122,7 +131,7 @@
 			<div class="over align-self-center">
 			  <div class="row justify-content-center align-self-center">			  	
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-					<a href="index.xhtml"><img src="resources/img/logo-escolha-certa-mini.png" alt="Logo Escolha Certa"/></a>
+					<a href="index.xhtml"><img src="resources/img/logo-escolha-certa-big.png" alt="Logo Escolha Certa"/></a>
 				</div>				
 			  </div>
 			  <div class="row justify-content-center">			  					
