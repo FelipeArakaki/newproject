@@ -6,7 +6,7 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
-		<property name="hibernate.connect.url">jdbc:jtds:sqlserver://localhost/schema</property>
+		<property name="hibernate.connect.url">jdbc:jtds:sqlserver://localhost/nome_bd</property>
 		<property name="hibernate.connection.username"></property>
 		<property name="hibernate.connection.password"></property>
 		
